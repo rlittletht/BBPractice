@@ -1,0 +1,394 @@
+﻿body
+{
+    background: AntiqueWhite;
+    margin: 0.0pt;
+}
+
+
+P.MasterAction
+{
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+}
+
+Span.MasterAction
+{
+    color: blue;
+    cursor: hand;
+    text-decoration: underline;
+}
+
+#MastHead
+{
+	height: 0.5in;
+	background: AntiqueWhite;
+    aborder-bottom: Wheat inset 3pt;
+}
+
+#MastHead .Title
+{
+	font-family: Calibri, Arial;
+	font-size: 28pt;
+    vertical-align: bottom;
+}
+
+#MastHead .Info
+{
+    width: 2in;
+    font-family: tahoma;
+    font-size: 10pt;
+    vertical-align: bottom;
+    text-align: right;
+    padding-right: 12pt;
+    padding-left: 12pt;
+}
+
+
+#MastHead Table
+{
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+#MastHead Table TR TD
+{
+	vertical-align: middle;
+	text-align: center;
+}
+
+#LocalMastHead
+{
+    background: Wheat;
+    height: 24pt;
+    font-family: Calibri;
+    font-size: 18pt;
+    text-align: center;
+    margin-left: 10pt;
+    margin-right: 10pt;
+    border-top: solid 1pt Beige;
+    border-left: solid 1pt Beige;
+    border-bottom: solid 1pt Gray;
+    border-right: solid 1pt Gray;
+}
+
+#AdminMastHead, #UserActions
+{
+    background: BurlyWood;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -2pt;
+    margin-right: 4pt;
+    margin-top: 24pt;
+    font-size: 10pt;
+    font-family: Calibri;
+    border-top: solid 1pt Wheat;
+    border-left: solid 1pt Wheat;
+    border-bottom: solid 1pt Gray;
+    border-right: solid 1pt Gray;
+}
+
+#AdminMastHead .MasterAction, #UserActions .MasterAction
+{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0pt;
+}
+
+#AdminMastHead button, #UserActions button
+{
+    margin-left: -4pt;
+    width: 64pt;
+    font-size: 8pt;
+}
+
+#LeftContent
+{
+    background: AntiqueWhite;
+    border-right: Wheat inset 3pt;
+    width: 72pt;
+    font-size: 90%;
+    text-align: left;
+    position: absolute;
+    top: 0.3in;
+	left: 0px;
+	padding-left: 12pt;
+	padding-right: 5pt;
+	padding-bottom: 10pt;
+    margin-top: 0.5in;
+    height: 100%;
+    z-index: -1;
+}
+
+#divDebug
+{
+    margin-left: 1.4in;
+    border: 3pt solid red; background: red;
+}
+
+
+#MainContent
+{
+    margin-left: 1.2in;
+    padding: 10px;
+}
+
+
+.NoMargins
+{
+    margin: 0pt 0pt 0pt 0pt;
+}
+
+table.DataTable
+{
+    border: 1pt solid black;
+    border-collapse: collapse;
+    width:100%;
+
+}
+
+.IconColumn, .IDColumn, .NameColumn, .DescriptionColumn, .ActionColumn 
+{
+    border-left: black 1pt solid;
+    border-right: black 1pt solid;
+}
+
+.IconColumn
+{
+}
+.IDColumn
+{
+    padding-left: 2pt;
+    padding-right: 2pt;
+    width: 72pt;
+}
+.NameColumn
+{
+    padding-left: 2pt;
+    padding-right: 2pt;
+    width: 20%;
+}
+.DescriptionColumn
+{
+    padding-left: 2pt;
+    padding-right: 2pt;
+    width: 60%
+}
+.ActionColumn 
+{
+    padding-left: 2pt;
+    padding-right: 2pt;
+}
+
+input.FormControl
+{
+    width: 96%;
+    background: transparent;
+}
+
+.HiddenRow 
+{
+    visibility: collapse;
+}
+
+thead tr
+{ 
+    background: Sienna;
+    color: white;
+}
+
+.OddRow
+{
+    background: bisque;
+}
+
+.EvenRow
+{
+    background: White;
+}
+
+.OuterPanelContainer
+{
+    width: 100%;
+}
+
+.PanelContainer
+{
+    width: 100%;
+    background: Bisque;
+    border-top: solid 2pt White;
+    border-left: solid 2pt white;
+    border-bottom: solid 2pt BurlyWood;
+    border-right: solid 2pt BurlyWood;
+
+}
+
+.PanelTable
+{
+    background: Bisque;
+}
+
+.PanelAction
+{
+    width: 0%;
+}
+
+.ActionButton
+{
+    background: transparent;
+}
+
+.PanelData
+{
+    background: linen;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+.PanelInactiveWeek, .PanelInactiveDay,
+.PanelActiveWeek, .PanelActiveDay
+{
+    padding-left: 24pt;
+    padding-right: 24pt;
+    text-align: center;
+    cursor: hand;
+}
+
+.PanelInactiveWeek, .PanelInactiveDay
+{
+    border-top: solid 1pt Peru;
+    border-left: solid 1pt Peru;
+    border-bottom: solid 1pt White;
+    border-right: solid 1pt white;
+    color:gray;
+}
+
+.PanelActiveWeek, .PanelActiveDay
+{
+    border-bottom: solid 1pt Peru;
+    border-right: solid 1pt Peru;
+    border-top: solid 1pt White;
+    border-left: solid 1pt white;
+    background: linen;
+}
+
+.SlotHeading
+{
+    border-top: double 2pt sienna;
+    border-bottom: double 2pt sienna;
+    border-left: solid 1pt peru;
+    border-right: solid 1pt peru;
+
+}
+
+.SortOrder
+{
+    font-weight: bold;
+}
+
+.Expando
+{
+    cursor: hand;
+}
+
+.ExpandoHeader
+{
+    font-weight: bold;
+    cursor: hand;
+}
+
+.SlotLocation
+{
+    Width: 25%;
+}
+
+.SlotDate
+{
+    Width: 8%;
+}
+
+.SlotStart
+{
+    Width: 10%;
+}
+
+.SlotLength
+{
+    Width: 6%;
+}
+
+.SlotOwner
+{
+    Width: 8%;
+}
+
+.SlotReserved
+{
+    Width: 8%;
+}
+
+.SlotRestrictions
+{
+    visibility: collapse;
+    Width: 5%;
+}
+
+.SlotActions
+{
+    width: 30%;
+}
+
+#divTooltip
+{
+    position: absolute;
+    width: 2in;
+    background: #000;
+    border: 2px double #fff;
+    text-align: left;
+    padding: 3pt;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+#divLogin
+{
+    position: absolute;
+    background: BurlyWood;
+    border-top: solid 1pt Peru;
+    border-left: solid 1pt Peru;
+    border-bottom: solid 1pt White;
+    border-right: solid 1pt white;
+    width: 3in;
+    height: auto;
+}
+#divLogin table
+{
+    padding: 0pt;
+    width: 100%;
+}
+
+#divLoginStatus
+{
+    text-align: left;
+}
+   
+.LoginTextbox
+{
+    width: 2in;
+}
+
+.LoginButton
+{
+    Width: 0.75in;
+}
+
+.DataActionButton
+{
+    font-size: 9pt;
+    font-family: tahoma;
+}

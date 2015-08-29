@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="WebCalSup.asmx.cs" Class="WebCal.WebCal" %>

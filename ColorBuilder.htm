@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Color Builder</title>
+    <style>
+    .ColorSwatch { width: 1in; border: .5pt solid black;}
+    .Container { padding: 0.25in; width: 1.5in; height: 1.5in;}
+    #OuterTable { background: AntiqueWhite; }
+    .swatchtable { font-family: Tahoma; font-size: 9pt; }
+    .Sample 
+        {
+        width: 1in; height: 1in; vertical-align: middle; text-align: center; 
+        margin: auto; 
+        margin-top: 0pt; margin-bottom: 0pt;
+        }
+    #inset1 
+        {
+        border-top: 1pt inset red; 
+        border-left: 1pt inset red; 
+        border-bottom: 1pt inset red; 
+        border-right: 1pt inset red; 
+        background: AntiqueWhite; 
+        }
+
+    #inset2
+        {
+        border-top: 2pt inset red; 
+        border-left: 2pt inset red; 
+        border-bottom: 2pt inset red; 
+        border-right: 2pt inset red; 
+        background: AntiqueWhite; 
+        }
+
+    #outset1 
+        {
+        border-top: 1pt outset red; 
+        border-left: 1pt outset red; 
+        border-bottom: 1pt outset red; 
+        border-right: 1pt outset red; 
+        background: AntiqueWhite; 
+        }
+
+    #outset2
+        {
+        border-top: 2pt outset red; 
+        border-left: 2pt outset red; 
+        border-bottom: 2pt outset red; 
+        border-right: 2pt outset red; 
+        background: AntiqueWhite; 
+        }
+
+    #maninset1
+        {
+        border-top: 1pt solid black;
+        border-left: 1pt solid black;
+        border-right: 1pt solid gray;
+        border-bottom: 1pt solid gray;
+        }
+
+    #maninset2
+        {
+        border-top: 2pt solid black;
+        border-left: 2pt solid black;
+        border-right: 2pt solid gray;
+        border-bottom: 2pt solid gray;
+        }
+
+    #manoutset1
+        {
+        border-top: 1pt solid gray;
+        border-left: 1pt solid gray;
+        border-right: 1pt solid black;
+        border-bottom: 1pt solid black;
+        }
+
+    #manoutset2
+        {
+        border-top: 2pt solid gray;
+        border-left: 2pt solid gray;
+        border-right: 2pt solid black;
+        border-bottom: 2pt solid black;
+        }
+    #solid1
+        {
+        border-top: 1pt solid red; 
+        border-left: 1pt solid red; 
+        border-bottom: 1pt solid red; 
+        border-right: 1pt solid red; 
+        background: AntiqueWhite; 
+        }
+
+    #solid2
+        {
+        border-top: 2pt solid red; 
+        border-left: 2pt solid red; 
+        border-bottom: 2pt solid red; 
+        border-right: 2pt solid red; 
+        background: AntiqueWhite; 
+        }
+
+    body { background: AnqieuWhite; }
+
+    </style>
+
+</head>
+    <script language="javascript">
+
+    var rgColors=new Array();
+
+	rgColors["Black"] = "000000";
+	rgColors["Navy"] = "000080";
+	rgColors["DarkBlue"] = "00008B";
+	rgColors["MediumBlue"] = "0000CD";
+	rgColors["Blue"] = "0000FF";
+	rgColors["DarkGreen"] = "006400";
+	rgColors["Green"] = "008000";
+	rgColors["Teal"] = "008080";
+	rgColors["DarkCyan"] = "008B8B";
+	rgColors["DeepSkyBlue"] = "00BFFF";
+	rgColors["DarkTurquoise"] = "00CED1";
+	rgColors["MediumSpringGreen"] = "00FA9A";
+	rgColors["Lime"] = "00FF00";
+	rgColors["SpringGreen"] = "00FF7F";
+	rgColors["Aqua"] = "00FFFF";
+	rgColors["Cyan"] = "00FFFF";
+	rgColors["MidnightBlue"] = "191970";
+	rgColors["DodgerBlue"] = "1E90FF";
+	rgColors["LightSeaGreen"] = "20B2AA";
+	rgColors["ForestGreen"] = "228B22";
+	rgColors["SeaGreen"] = "2E8B57";
+	rgColors["DarkSlateGray"] = "2F4F4F";
+	rgColors["LimeGreen"] = "32CD32";
+	rgColors["MediumSeaGreen"] = "3CB371";
+	rgColors["Turquoise"] = "40E0D0";
+	rgColors["RoyalBlue"] = "4169E1";
+	rgColors["SteelBlue"] = "4682B4";
+	rgColors["DarkSlateBlue"] = "483D8B";
+	rgColors["MediumTurquoise"] = "48D1CC";
+	rgColors["Indigo"] = "4B0082";
+	rgColors["DarkOliveGreen"] = "556B2F";
+	rgColors["CadetBlue"] = "5F9EA0";
+	rgColors["CornflowerBlue"] = "6495ED";
+	rgColors["MediumAquaMarine"] = "66CDAA";
+	rgColors["DimGray"] = "696969";
+	rgColors["SlateBlue"] = "6A5ACD";
+	rgColors["OliveDrab"] = "6B8E23";
+	rgColors["SlateGray"] = "708090";
+	rgColors["LightSlateGray"] = "778899";
+	rgColors["MediumSlateBlue"] = "7B68EE";
+	rgColors["LawnGreen"] = "7CFC00";
+	rgColors["Chartreuse"] = "7FFF00";
+	rgColors["Aquamarine"] = "7FFFD4";
+	rgColors["Maroon"] = "800000";
+	rgColors["Purple"] = "800080";
+	rgColors["Olive"] = "808000";
+	rgColors["Gray"] = "808080";
+	rgColors["SkyBlue"] = "87CEEB";
+	rgColors["LightSkyBlue"] = "87CEFA";
+	rgColors["BlueViolet"] = "8A2BE2";
+	rgColors["DarkRed"] = "8B0000";
+	rgColors["DarkMagenta"] = "8B008B";
+	rgColors["SaddleBrown"] = "8B4513";
+	rgColors["DarkSeaGreen"] = "8FBC8F";
+	rgColors["LightGreen"] = "90EE90";
+	rgColors["MediumPurple"] = "9370D8";
+	rgColors["DarkViolet"] = "9400D3";
+	rgColors["PaleGreen"] = "98FB98";
+	rgColors["DarkOrchid"] = "9932CC";
+	rgColors["YellowGreen"] = "9ACD32";
+	rgColors["Sienna"] = "A0522D";
+	rgColors["Brown"] = "A52A2A";
+	rgColors["DarkGray"] = "A9A9A9";
+	rgColors["LightBlue"] = "ADD8E6";
+	rgColors["GreenYellow"] = "ADFF2F";
+	rgColors["PaleTurquoise"] = "AFEEEE";
+	rgColors["LightSteelBlue"] = "B0C4DE";
+	rgColors["PowderBlue"] = "B0E0E6";
+	rgColors["FireBrick"] = "B22222";
+	rgColors["DarkGoldenRod"] = "B8860B";
+	rgColors["MediumOrchid"] = "BA55D3";
+	rgColors["RosyBrown"] = "BC8F8F";
+	rgColors["DarkKhaki"] = "BDB76B";
+	rgColors["Silver"] = "C0C0C0";
+	rgColors["MediumVioletRed"] = "C71585";
+	rgColors["IndianRed"] = "CD5C5C";
+	rgColors["Peru"] = "CD853F";
+	rgColors["Chocolate"] = "D2691E";
+	rgColors["Tan"] = "D2B48C";
+	rgColors["LightGrey"] = "D3D3D3";
+	rgColors["PaleVioletRed"] = "D87093";
+	rgColors["Thistle"] = "D8BFD8";
+	rgColors["Orchid"] = "DA70D6";
+	rgColors["GoldenRod"] = "DAA520";
+	rgColors["Crimson"] = "DC143C";
+	rgColors["Gainsboro"] = "DCDCDC";
+	rgColors["Plum"] = "DDA0DD";
+	rgColors["BurlyWood"] = "DEB887";
+	rgColors["LightCyan"] = "E0FFFF";
+	rgColors["Lavender"] = "E6E6FA";
+	rgColors["DarkSalmon"] = "E9967A";
+	rgColors["Violet"] = "EE82EE";
+	rgColors["PaleGoldenRod"] = "EEE8AA";
+	rgColors["LightCoral"] = "F08080";
+	rgColors["Khaki"] = "F0E68C";
+	rgColors["AliceBlue"] = "F0F8FF";
+	rgColors["HoneyDew"] = "F0FFF0";
+	rgColors["Azure"] = "F0FFFF";
+	rgColors["SandyBrown"] = "F4A460";
+	rgColors["Wheat"] = "F5DEB3";
+	rgColors["Beige"] = "F5F5DC";
+	rgColors["WhiteSmoke"] = "F5F5F5";
+	rgColors["MintCream"] = "F5FFFA";
+	rgColors["GhostWhite"] = "F8F8FF";
+	rgColors["Salmon"] = "FA8072";
+	rgColors["AntiqueWhite"] = "FAEBD7";
+	rgColors["Linen"] = "FAF0E6";
+	rgColors["LightGoldenRodYellow"] = "FAFAD2";
+	rgColors["OldLace"] = "FDF5E6";
+	rgColors["Red"] = "FF0000";
+	rgColors["Fuchsia"] = "FF00FF";
+	rgColors["Magenta"] = "FF00FF";
+	rgColors["DeepPink"] = "FF1493";
+	rgColors["OrangeRed"] = "FF4500";
+	rgColors["Tomato"] = "FF6347";
+	rgColors["HotPink"] = "FF69B4";
+	rgColors["Coral"] = "FF7F50";
+	rgColors["Darkorange"] = "FF8C00";
+	rgColors["LightSalmon"] = "FFA07A";
+	rgColors["Orange"] = "FFA500";
+	rgColors["LightPink"] = "FFB6C1";
+	rgColors["Pink"] = "FFC0CB";
+	rgColors["Gold"] = "FFD700";
+	rgColors["PeachPuff"] = "FFDAB9";
+	rgColors["NavajoWhite"] = "FFDEAD";
+	rgColors["Moccasin"] = "FFE4B5";
+	rgColors["Bisque"] = "FFE4C4";
+	rgColors["MistyRose"] = "FFE4E1";
+	rgColors["BlanchedAlmond"] = "FFEBCD";
+	rgColors["PapayaWhip"] = "FFEFD5";
+	rgColors["LavenderBlush"] = "FFF0F5";
+	rgColors["SeaShell"] = "FFF5EE";
+	rgColors["Cornsilk"] = "FFF8DC";
+	rgColors["LemonChiffon"] = "FFFACD";
+	rgColors["FloralWhite"] = "FFFAF0";
+	rgColors["Snow"] = "FFFAFA";
+	rgColors["Yellow"] = "FFFF00";
+	rgColors["LightYellow"] = "FFFFE0";
+	rgColors["Ivory"] = "FFFFF0";
+	rgColors["White"] = "FFFFFF";
+
+    function ClickColor(sColor)
+	{
+        if (idBackground.checked)
+			{
+            OuterTable.style.background = sColor;
+            curBackground.innerText = sColor;
+			}
+
+        if (idBackgroundInner.checked)
+			{
+            inset1.style.background = sColor;
+			inset2.style.background = sColor;
+			solid1.style.background = sColor;
+			solid2.style.background = sColor;
+			outset1.style.background = sColor;
+			outset2.style.background = sColor;
+			maninset1.style.background = sColor;
+			maninset2.style.background = sColor;
+			manoutset1.style.background = sColor;
+			manoutset2.style.background = sColor;
+            curBackgroundInner.innerText = sColor;
+			}
+
+        if (idText.checked)
+			{
+            inset1.style.fontcolor = 
+				inset2.style.fontcolor = 
+				outset1.style.fontcolor = 
+				outset2.style.fontcolor = 
+				maninset1.style.fontcolor = 
+				maninset2.style.fontcolor = 
+				manoutset1.style.fontcolor = 
+				manoutset2.style.fontcolor = 
+				solid1.style.fontcolor = 
+				solid2.style.fontcolor = sColor;
+            curText.innerText = sColor;
+			}
+        if (idBorderTop.checked)
+			{
+            inset1.style.borderTopColor = 
+				inset2.style.borderTopColor = 
+				outset1.style.borderTopColor = 
+				outset2.style.borderTopColor = 
+				solid1.style.borderTopColor = 
+				solid2.style.borderTopColor = sColor;
+            curBorderTop.innerText = sColor;
+			}
+		if (idBorderBottom.checked)
+			{
+			inset1.style.borderBottomColor = 
+				inset2.style.borderBottomColor = 
+				outset1.style.borderBottomColor = 
+				outset2.style.borderBottomColor = 
+				solid1.style.borderBottomColor = 
+				solid2.style.borderBottomColor = sColor;
+			curBorderBottom.innerText = sColor;
+			}
+        if (idBorderIn.checked)
+			{
+            maninset1.style.borderTopColor =
+                maninset1.style.borderLeftColor = 
+				maninset2.style.borderTopColor =
+				maninset2.style.borderLeftColor = 
+				manoutset1.style.borderBottomColor = 
+				manoutset1.style.borderRightColor =
+				manoutset2.style.borderBottomColor = 
+				manoutset2.style.borderRightColor = sColor;
+            curBorderIn.innerText = sColor;
+			}
+		if (idBorderOut.checked)
+			{
+			manoutset1.style.borderTopColor =
+				manoutset1.style.borderLeftColor = 
+				manoutset2.style.borderTopColor =
+				manoutset2.style.borderLeftColor = 
+				maninset1.style.borderBottomColor = 
+				maninset1.style.borderRightColor =
+				maninset2.style.borderBottomColor = 
+				maninset2.style.borderRightColor = sColor;
+			curBorderOut.innerText = sColor;
+			}
+		if (idBorderLeft.checked)
+			{
+			inset1.style.borderLeftColor = 
+				inset2.style.borderLeftColor = 
+				solid1.style.borderLeftColor = 
+				solid2.style.borderLeftColor = sColor;
+			curBorderLeft.innerText = sColor;
+			}
+		if (idBorderRight.checked)
+			{
+			inset1.style.borderRightColor = 
+				inset2.style.borderRightColor = 
+				solid1.style.borderRightColor = 
+				solid2.style.borderRightColor = sColor;
+			curBorderRight.innerText = sColor;
+			}
+		}
+
+	</script>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                Click Color
+            </td>
+            <td>
+                See Effects
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="swatchtable">
+                    <tr onclick='ClickColor("Black");'><td>Black</td><td class='ColorSwatch' style='background: #000000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Navy");'><td>Navy</td><td class='ColorSwatch' style='background: #000080;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkBlue");'><td>DarkBlue</td><td class='ColorSwatch' style='background: #00008B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumBlue");'><td>MediumBlue</td><td class='ColorSwatch' style='background: #0000CD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Blue");'><td>Blue</td><td class='ColorSwatch' style='background: #0000FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkGreen");'><td>DarkGreen</td><td class='ColorSwatch' style='background: #006400;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Green");'><td>Green</td><td class='ColorSwatch' style='background: #008000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Teal");'><td>Teal</td><td class='ColorSwatch' style='background: #008080;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkCyan");'><td>DarkCyan</td><td class='ColorSwatch' style='background: #008B8B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DeepSkyBlue");'><td>DeepSkyBlue</td><td class='ColorSwatch' style='background: #00BFFF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkTurquoise");'><td>DarkTurquoise</td><td class='ColorSwatch' style='background: #00CED1;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumSpringGreen");'><td>MediumSpringGreen</td><td class='ColorSwatch' style='background: #00FA9A;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Lime");'><td>Lime</td><td class='ColorSwatch' style='background: #00FF00;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SpringGreen");'><td>SpringGreen</td><td class='ColorSwatch' style='background: #00FF7F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Aqua");'><td>Aqua</td><td class='ColorSwatch' style='background: #00FFFF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Cyan");'><td>Cyan</td><td class='ColorSwatch' style='background: #00FFFF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MidnightBlue");'><td>MidnightBlue</td><td class='ColorSwatch' style='background: #191970;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DodgerBlue");'><td>DodgerBlue</td><td class='ColorSwatch' style='background: #1E90FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightSeaGreen");'><td>LightSeaGreen</td><td class='ColorSwatch' style='background: #20B2AA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("ForestGreen");'><td>ForestGreen</td><td class='ColorSwatch' style='background: #228B22;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SeaGreen");'><td>SeaGreen</td><td class='ColorSwatch' style='background: #2E8B57;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkSlateGray");'><td>DarkSlateGray</td><td class='ColorSwatch' style='background: #2F4F4F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LimeGreen");'><td>LimeGreen</td><td class='ColorSwatch' style='background: #32CD32;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumSeaGreen");'><td>MediumSeaGreen</td><td class='ColorSwatch' style='background: #3CB371;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Turquoise");'><td>Turquoise</td><td class='ColorSwatch' style='background: #40E0D0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("RoyalBlue");'><td>RoyalBlue</td><td class='ColorSwatch' style='background: #4169E1;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SteelBlue");'><td>SteelBlue</td><td class='ColorSwatch' style='background: #4682B4;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkSlateBlue");'><td>DarkSlateBlue</td><td class='ColorSwatch' style='background: #483D8B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumTurquoise");'><td>MediumTurquoise</td><td class='ColorSwatch' style='background: #48D1CC;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Indigo");'><td>Indigo</td><td class='ColorSwatch' style='background: #4B0082;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkOliveGreen");'><td>DarkOliveGreen</td><td class='ColorSwatch' style='background: #556B2F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("CadetBlue");'><td>CadetBlue</td><td class='ColorSwatch' style='background: #5F9EA0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("CornflowerBlue");'><td>CornflowerBlue</td><td class='ColorSwatch' style='background: #6495ED;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumAquaMarine");'><td>MediumAquaMarine</td><td class='ColorSwatch' style='background: #66CDAA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DimGray");'><td>DimGray</td><td class='ColorSwatch' style='background: #696969;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SlateBlue");'><td>SlateBlue</td><td class='ColorSwatch' style='background: #6A5ACD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("OliveDrab");'><td>OliveDrab</td><td class='ColorSwatch' style='background: #6B8E23;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SlateGray");'><td>SlateGray</td><td class='ColorSwatch' style='background: #708090;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightSlateGray");'><td>LightSlateGray</td><td class='ColorSwatch' style='background: #778899;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumSlateBlue");'><td>MediumSlateBlue</td><td class='ColorSwatch' style='background: #7B68EE;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LawnGreen");'><td>LawnGreen</td><td class='ColorSwatch' style='background: #7CFC00;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Chartreuse");'><td>Chartreuse</td><td class='ColorSwatch' style='background: #7FFF00;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Aquamarine");'><td>Aquamarine</td><td class='ColorSwatch' style='background: #7FFFD4;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Maroon");'><td>Maroon</td><td class='ColorSwatch' style='background: #800000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Purple");'><td>Purple</td><td class='ColorSwatch' style='background: #800080;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Olive");'><td>Olive</td><td class='ColorSwatch' style='background: #808000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Gray");'><td>Gray</td><td class='ColorSwatch' style='background: #808080;'>&nbsp;</td>
+                </table>
+                <td>
+                    <table class="swatchtable">
+                    </tr><tr onclick='ClickColor("SkyBlue");'><td>SkyBlue</td><td class='ColorSwatch' style='background: #87CEEB;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightSkyBlue");'><td>LightSkyBlue</td><td class='ColorSwatch' style='background: #87CEFA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("BlueViolet");'><td>BlueViolet</td><td class='ColorSwatch' style='background: #8A2BE2;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkRed");'><td>DarkRed</td><td class='ColorSwatch' style='background: #8B0000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkMagenta");'><td>DarkMagenta</td><td class='ColorSwatch' style='background: #8B008B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SaddleBrown");'><td>SaddleBrown</td><td class='ColorSwatch' style='background: #8B4513;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkSeaGreen");'><td>DarkSeaGreen</td><td class='ColorSwatch' style='background: #8FBC8F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightGreen");'><td>LightGreen</td><td class='ColorSwatch' style='background: #90EE90;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumPurple");'><td>MediumPurple</td><td class='ColorSwatch' style='background: #9370D8;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkViolet");'><td>DarkViolet</td><td class='ColorSwatch' style='background: #9400D3;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PaleGreen");'><td>PaleGreen</td><td class='ColorSwatch' style='background: #98FB98;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkOrchid");'><td>DarkOrchid</td><td class='ColorSwatch' style='background: #9932CC;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("YellowGreen");'><td>YellowGreen</td><td class='ColorSwatch' style='background: #9ACD32;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Sienna");'><td>Sienna</td><td class='ColorSwatch' style='background: #A0522D;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Brown");'><td>Brown</td><td class='ColorSwatch' style='background: #A52A2A;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkGray");'><td>DarkGray</td><td class='ColorSwatch' style='background: #A9A9A9;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightBlue");'><td>LightBlue</td><td class='ColorSwatch' style='background: #ADD8E6;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("GreenYellow");'><td>GreenYellow</td><td class='ColorSwatch' style='background: #ADFF2F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PaleTurquoise");'><td>PaleTurquoise</td><td class='ColorSwatch' style='background: #AFEEEE;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightSteelBlue");'><td>LightSteelBlue</td><td class='ColorSwatch' style='background: #B0C4DE;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PowderBlue");'><td>PowderBlue</td><td class='ColorSwatch' style='background: #B0E0E6;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("FireBrick");'><td>FireBrick</td><td class='ColorSwatch' style='background: #B22222;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkGoldenRod");'><td>DarkGoldenRod</td><td class='ColorSwatch' style='background: #B8860B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumOrchid");'><td>MediumOrchid</td><td class='ColorSwatch' style='background: #BA55D3;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("RosyBrown");'><td>RosyBrown</td><td class='ColorSwatch' style='background: #BC8F8F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkKhaki");'><td>DarkKhaki</td><td class='ColorSwatch' style='background: #BDB76B;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Silver");'><td>Silver</td><td class='ColorSwatch' style='background: #C0C0C0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MediumVioletRed");'><td>MediumVioletRed</td><td class='ColorSwatch' style='background: #C71585;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("IndianRed");'><td>IndianRed</td><td class='ColorSwatch' style='background: #CD5C5C;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Peru");'><td>Peru</td><td class='ColorSwatch' style='background: #CD853F;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Chocolate");'><td>Chocolate</td><td class='ColorSwatch' style='background: #D2691E;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Tan");'><td>Tan</td><td class='ColorSwatch' style='background: #D2B48C;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightGrey");'><td>LightGrey</td><td class='ColorSwatch' style='background: #D3D3D3;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PaleVioletRed");'><td>PaleVioletRed</td><td class='ColorSwatch' style='background: #D87093;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Thistle");'><td>Thistle</td><td class='ColorSwatch' style='background: #D8BFD8;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Orchid");'><td>Orchid</td><td class='ColorSwatch' style='background: #DA70D6;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("GoldenRod");'><td>GoldenRod</td><td class='ColorSwatch' style='background: #DAA520;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Crimson");'><td>Crimson</td><td class='ColorSwatch' style='background: #DC143C;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Gainsboro");'><td>Gainsboro</td><td class='ColorSwatch' style='background: #DCDCDC;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Plum");'><td>Plum</td><td class='ColorSwatch' style='background: #DDA0DD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("BurlyWood");'><td>BurlyWood</td><td class='ColorSwatch' style='background: #DEB887;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightCyan");'><td>LightCyan</td><td class='ColorSwatch' style='background: #E0FFFF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Lavender");'><td>Lavender</td><td class='ColorSwatch' style='background: #E6E6FA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DarkSalmon");'><td>DarkSalmon</td><td class='ColorSwatch' style='background: #E9967A;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Violet");'><td>Violet</td><td class='ColorSwatch' style='background: #EE82EE;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PaleGoldenRod");'><td>PaleGoldenRod</td><td class='ColorSwatch' style='background: #EEE8AA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightCoral");'><td>LightCoral</td><td class='ColorSwatch' style='background: #F08080;'>&nbsp;</td>
+                </table>
+                <td>
+                <table class="swatchtable">
+                    </tr><tr onclick='ClickColor("Khaki");'><td>Khaki</td><td class='ColorSwatch' style='background: #F0E68C;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("AliceBlue");'><td>AliceBlue</td><td class='ColorSwatch' style='background: #F0F8FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("HoneyDew");'><td>HoneyDew</td><td class='ColorSwatch' style='background: #F0FFF0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Azure");'><td>Azure</td><td class='ColorSwatch' style='background: #F0FFFF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SandyBrown");'><td>SandyBrown</td><td class='ColorSwatch' style='background: #F4A460;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Wheat");'><td>Wheat</td><td class='ColorSwatch' style='background: #F5DEB3;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Beige");'><td>Beige</td><td class='ColorSwatch' style='background: #F5F5DC;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("WhiteSmoke");'><td>WhiteSmoke</td><td class='ColorSwatch' style='background: #F5F5F5;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MintCream");'><td>MintCream</td><td class='ColorSwatch' style='background: #F5FFFA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("GhostWhite");'><td>GhostWhite</td><td class='ColorSwatch' style='background: #F8F8FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Salmon");'><td>Salmon</td><td class='ColorSwatch' style='background: #FA8072;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("AntiqueWhite");'><td>AntiqueWhite</td><td class='ColorSwatch' style='background: #FAEBD7;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Linen");'><td>Linen</td><td class='ColorSwatch' style='background: #FAF0E6;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightGoldenRodYellow");'><td>LightGoldenRodYellow</td><td class='ColorSwatch' style='background: #FAFAD2;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("OldLace");'><td>OldLace</td><td class='ColorSwatch' style='background: #FDF5E6;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Red");'><td>Red</td><td class='ColorSwatch' style='background: #FF0000;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Fuchsia");'><td>Fuchsia</td><td class='ColorSwatch' style='background: #FF00FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Magenta");'><td>Magenta</td><td class='ColorSwatch' style='background: #FF00FF;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("DeepPink");'><td>DeepPink</td><td class='ColorSwatch' style='background: #FF1493;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("OrangeRed");'><td>OrangeRed</td><td class='ColorSwatch' style='background: #FF4500;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Tomato");'><td>Tomato</td><td class='ColorSwatch' style='background: #FF6347;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("HotPink");'><td>HotPink</td><td class='ColorSwatch' style='background: #FF69B4;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Coral");'><td>Coral</td><td class='ColorSwatch' style='background: #FF7F50;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Darkorange");'><td>Darkorange</td><td class='ColorSwatch' style='background: #FF8C00;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightSalmon");'><td>LightSalmon</td><td class='ColorSwatch' style='background: #FFA07A;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Orange");'><td>Orange</td><td class='ColorSwatch' style='background: #FFA500;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightPink");'><td>LightPink</td><td class='ColorSwatch' style='background: #FFB6C1;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Pink");'><td>Pink</td><td class='ColorSwatch' style='background: #FFC0CB;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Gold");'><td>Gold</td><td class='ColorSwatch' style='background: #FFD700;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PeachPuff");'><td>PeachPuff</td><td class='ColorSwatch' style='background: #FFDAB9;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("NavajoWhite");'><td>NavajoWhite</td><td class='ColorSwatch' style='background: #FFDEAD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Moccasin");'><td>Moccasin</td><td class='ColorSwatch' style='background: #FFE4B5;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Bisque");'><td>Bisque</td><td class='ColorSwatch' style='background: #FFE4C4;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("MistyRose");'><td>MistyRose</td><td class='ColorSwatch' style='background: #FFE4E1;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("BlanchedAlmond");'><td>BlanchedAlmond</td><td class='ColorSwatch' style='background: #FFEBCD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("PapayaWhip");'><td>PapayaWhip</td><td class='ColorSwatch' style='background: #FFEFD5;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LavenderBlush");'><td>LavenderBlush</td><td class='ColorSwatch' style='background: #FFF0F5;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("SeaShell");'><td>SeaShell</td><td class='ColorSwatch' style='background: #FFF5EE;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Cornsilk");'><td>Cornsilk</td><td class='ColorSwatch' style='background: #FFF8DC;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LemonChiffon");'><td>LemonChiffon</td><td class='ColorSwatch' style='background: #FFFACD;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("FloralWhite");'><td>FloralWhite</td><td class='ColorSwatch' style='background: #FFFAF0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Snow");'><td>Snow</td><td class='ColorSwatch' style='background: #FFFAFA;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Yellow");'><td>Yellow</td><td class='ColorSwatch' style='background: #FFFF00;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("LightYellow");'><td>LightYellow</td><td class='ColorSwatch' style='background: #FFFFE0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("Ivory");'><td>Ivory</td><td class='ColorSwatch' style='background: #FFFFF0;'>&nbsp;</td>
+                    </tr><tr onclick='ClickColor("White");'><td>White</td><td class='ColorSwatch' style='background: #FFFFFF;'>&nbsp;</td>
+                </table>
+            </td>
+                <td valign=top>
+                    <table>
+                        <tr>
+                            <td>
+                                <input id="idBackground" type="checkbox">Outer Background 
+                                (<span id=curBackground>AntiqueWhite</span>)
+                            </td>
+                            <td>
+                                <input id="idBackgroundInner" type="checkbox">Inner Background
+                                (<span id=curBackgroundInner>AntiqueWhite</span>)
+                            </td>
+                            <td>
+                                <input id="idText" type="checkbox">Text
+                                (<span id=curText>Black</span>)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="idBorderTop" type="checkbox">Top Border
+                                (<span id=curBorderTop>Red</span>)
+                            </td>
+                            <td>
+                                <input id="idBorderBottom" type="checkbox">Bottom Border
+                                (<span id=curBorderBottom>Red</span>)
+                            </td> 
+                            <td>
+                                <input id="idBorderIn" type="checkbox">Manual In Border 
+                                (<span id=curBorderIn>Black
+                                 </span>)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="idBorderLeft" type="checkbox">Left Border
+                                (<span id=curBorderLeft>Red</span>)
+                            </td>
+                            <td>
+                                <input id="idBorderRight" type="checkbox">Right Border
+                                (<span id=curBorderRight>Red</span>)
+                            </td>
+                            <td>
+                                <input id="idBorderOut" type="checkbox">Manual Out Border 
+                                (<span id=curBorderOut>Red
+                                 </span>)
+                            </td>
+                        </tr>
+                    </table>
+                    <table id=OuterTable>
+                    <tr>
+                        <td>
+                            <div class=Container>
+                                <div id=inset1 class=Sample>
+                            <p>Inset1</p>
+                            <p>Inset1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class=Container>
+                                <div id=inset2 class=Sample>
+                            <p>Inset2</p>
+                            <p>Inset2</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class=Container>
+                                <div id=outset1 class=Sample>
+                            <p>Outset1</p>
+                            <p>Outset1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class=Container>
+                                <div id=outset2 class=Sample>
+                            <p>Outset2</p>
+                            <p>Outset2</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class=Container>
+                                <div id=maninset1 class=Sample>
+                            <p>ManInset1</p>
+                            <p>ManInset1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class=Container>
+                                <div id=maninset2 class=Sample>
+                            <p>ManInset2</p>
+                            <p>ManInset2Test</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class=Container>
+                                <div id=manoutset1 class=Sample>
+                            <p>ManOutset1</p>
+                            <p>ManOutset1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class=Container>
+                                <div id=manoutset2 class=Sample>
+                            <p>ManOutset2</p>
+                            <p>ManOutset2</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class=Container>
+                                <div id=solid1  class=Sample>
+                            <p>ManSolid1</p>
+                            <p>ManSolid1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class=Container>
+                                <div id=solid2  class=Sample>
+                            <p>ManSolid2</p>
+                            <p>ManSolid2</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                        
+                    </table>
+                </td>
+        </tr>
+    </table>
+</body>
+</html>

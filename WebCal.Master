@@ -1,0 +1,217 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebCal.master.cs" Inherits="WebCal.WebCal1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+<% 
+    Session["Debug"] = "0";
+    Session["DebugLevel"] = "0"; 
+%>  
+	<script type="text/javascript">
+
+    function DebugWrite(s, l)
+    {
+        if (l == undefined)
+            l = 1;
+
+        if (parseInt("<% Response.Write(Session["Debug"]); %>") != 0 && parseInt("<% Response.Write(Session["DebugLevel"]); %>") >= l )
+            {
+            //          divDebug.innerHTML += "'<% Response.Write(Session["DebugLevel"]); %>'  >= '"+l+"'";
+            divDebug.innerHTML += "<span class='debugFmt'>" + s + "</span><br>";
+            }
+    }
+
+    <% Response.Write("var vsCurUser=\""+Session["CurrentUserName"]+"\";\n"); %>
+    <% Response.Write("var vsCurUserID=\""+Session["CurrentUserID"]+"\";\n"); %>
+    <% Response.Write("var vsCurUserGroup=\""+Session["CurrentUserGroup"]+"\";\n"); %>
+    <% Response.Write("var vcCurUserLimitLeft=\""+Session["CurrentUserDailyLimitLeft"]+"\";\n"); %>
+
+    <% Response.Write("var vsDoLoginBtnID=\""+btnDoLogin.ClientID+"\";\n"); %>
+
+    var fStartedQuery = false;
+
+    function DoLogin()
+    {
+		if (vsCurUser == "" || vsCurUser == "Not logged in" || vsCurUser == "undefined")
+            {
+            divLogin.style.left = this.event.x + 15;
+            divLogin.style.top = this.event.y;
+
+            divLogin.style.visibility = "visible";
+            var txt = theForm.elements["<%= txtUserID.UniqueID %>"];
+            
+            txt.focus();
+            txt.select();
+            }
+		else
+            {
+            var sLogin = theForm.elements["<%= txtUserID.UniqueID %>"].value;
+            var sPassword = theForm.elements["<%= txtPassword.UniqueID %>"].value;
+            sLogin = "";
+            sPassword = "";
+            __doPostBack('<%= btnLogin.UniqueID %>', '');
+            }
+        return false;
+    }
+
+
+    function ExecuteLogin()
+    {
+        var form1 = theForm;
+        var sLogin = form1.elements["<%= txtUserID.UniqueID %>"].value;
+        var sPassword = form1.elements["<%= txtPassword.UniqueID %>"].value;
+        DebugWrite("login: "+sLogin+", password: "+sPassword, 1);
+        WebCal.WebCal.Login(sLogin, sPassword, CompleteLogin, OnFailed);
+        return false;
+    }
+
+    function CompleteLogin(result, userContext, methodName)
+    {
+        if (result == null)
+            {
+            divLoginStatus.style.visibility = "visible";
+            divLoginStatus.innerHTML = "<p class='LoginFailed'>Login ID or Password incorrect.  Please try again</p>";
+            }
+        else
+            {
+            __doPostBack('<%= btnLogin.UniqueID %>', '');
+            }
+    }
+
+    function CancelLogin()
+    {
+        divLogin.style.visibility = "hidden";
+        divLoginStatus.style.visibility = "hidden";
+    }
+    
+	</script>
+
+	<link rel="Stylesheet" href="WebCal.css" />
+
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+
+<body onload="pageLoad()">
+<div ID="MastHead">
+	<table>
+		<tr>
+			<td class="Info">&nbsp;</td>
+
+			<td class="Title">
+				<p class="NoMargins">
+				Practice Field Management 2010
+				</p>
+			</td>
+
+			<td class="Info">
+				<p class="NoMargins">
+				<b>Current User: </b>
+				<span id="idCurrentUser">
+						<%=Session["CurrentUserName"]%>
+						
+				</span>
+				</p>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<form name="masterForm" id="masterForm" runat="server">
+
+	<div ID="LocalMastHead">
+		<asp:ContentPlaceHolder ID="LocalContent" runat="server">
+		</asp:ContentPlaceHolder>
+	</div>
+
+	<div>
+		<asp:ScriptManager ID="ScriptManager1" runat="server" >
+			<Scripts>
+				<asp:ScriptReference Path="CallWebServiceMethods.js" />
+			</Scripts>
+			<Services>
+				<asp:ServiceReference Path="WebCalSup.asmx" />
+			</Services>
+		</asp:ScriptManager>
+	</div>
+
+	<div ID="MainContent">
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+	</div>
+
+	<div ID="LeftContent">
+		<div ID="UserActions">
+			<button id="btnDoLogin" runat="server" onclick='return DoLogin();' >
+				Login
+			</button>
+			<button id="btnEditSlots" runat="server" onclick="return Navigate('EditSlots.aspx');" >
+				Reservations
+			</button>
+			<button id="btnSummary" runat="server" onclick="return Navigate('Summary.aspx');" >
+				Summary
+			</button>
+		</div>
+
+		<div ID="AdminMastHead">
+			<p class="MasterAction">Admin</p>
+				<button id="btnEditFields" runat="server" onclick='return Navigate("Resources.aspx");' >
+					Edit Fields
+				</button>
+
+			<asp:ContentPlaceHolder ID="AdminContent" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+
+	</div>
+
+	<div ID="divLogin" style="visibility: hidden;">
+		<table>
+			<tr>
+				<td>
+					<p class="NoMargins">
+					UserID:
+					</p>
+				<td align="right">
+					<p class="NoMargins">
+					<asp:TextBox class="LoginTextbox" ID="txtUserID" runat="server" onkeydown="if (event.keyCode==13) event.keyCode = 9; return true;">
+					</asp:TextBox>
+					</p>
+			</tr>
+			<tr>
+				<td>
+					<p class="NoMargins">
+					Password:
+					</p>
+				<td align="right">
+					<p class="NoMargins">
+					<asp:TextBox class="LoginTextbox" ID="txtPassword" runat="server" TextMode="Password" onkeydown="if (event.keyCode==13) return ExecuteLogin(); return true;">
+					</asp:TextBox>
+					</p>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<p class="NoMargins" >
+					<asp:LinkButton ID="btnLogin" onclick="LoginCommand" runat="server"/>
+					<button class="LoginButton" ID="btnExecuteLogin" Text="Login" Value="rlittle" OnClick="ExecuteLogin();return false;">Login</button>
+					<button class="LoginButton" ID="idCancelLogin" value = "foobar" onClick="CancelLogin();return false;">Cancel</button>
+					<br>
+					</p>
+					<div ID="divLoginStatus" style="visibility: hidden">
+
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+
+	<%
+      if (Session["Debug"] == "1")
+      {
+         Response.Write("<div id=divDebug><p>Debug Output</p></div>");
+      }
+    %>
+
+</body>
+</html>

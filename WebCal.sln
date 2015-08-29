@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCal", "WebCal.csproj", "{64C43A8C-ED09-426A-B202-F7E3A1B81621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCalWcf", "..\WebCalWcf\WebCalWcf.csproj", "{72E94EF9-16F2-415A-98D2-4038BFE07850}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCalWcf", "Wcf\WebCalWcf.csproj", "{72E94EF9-16F2-415A-98D2-4038BFE07850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
